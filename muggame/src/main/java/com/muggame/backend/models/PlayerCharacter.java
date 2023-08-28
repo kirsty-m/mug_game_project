@@ -1,17 +1,31 @@
 package com.muggame.backend.models;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class playerCharacter {
 
+@Entity
+@Table(name="playerCharacters")
+public class PlayerCharacter {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name="name")
     private String name;
+
+    @Column(name="inventory")
     private ArrayList<String> inventory;
+
+    @Column(name="attributes")
     private HashMap<String, Integer> attributes;
+
+    @Column(name="statusEffect")
     private String statusEffect;
 
-    public playerCharacter(String name) {
+    public PlayerCharacter(String name) {
         this.name = name;
         this.inventory = new ArrayList<>();
         this.attributes = new HashMap<>();
@@ -20,4 +34,6 @@ public class playerCharacter {
         attributes.put("Luck", 0);
         this.statusEffect = null;
     }
+
+    public PlayerCharacter(){}
 }
