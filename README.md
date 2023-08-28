@@ -1,4 +1,4 @@
-<h1>Think About It…</h1>
+<h1>Mug Game Project</h1>
 
 A text based adventure game, where you play as an office worker desperately trying to retrieve their favourite mug from the office after accidentally leaving it behind at 5pm one Friday. You return the office late Friday night only to discover it full of fantastical creatures, scary monsters and a zombie security guard. You must survive the dangers, fight your enemies and most importantly, get your mug back!
 
