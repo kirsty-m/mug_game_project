@@ -25,3 +25,4 @@ A user must be able to:
 <h3>Advanced Extensions</h3>
 
 - Multiplayer aspect
+- Mobile version
