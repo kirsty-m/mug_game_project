@@ -19,6 +19,7 @@ A user must be able to:
 - Game soundtrack
 - Player journal/diary to keep notes or to-do list
 - Animations
+- Game Hints
 
 
 <h3>Advanced Extensions</h3>
