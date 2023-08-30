@@ -3,10 +3,11 @@ package com.muggame.backend.models;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
 @Entity
-@Table(name="playerCharacters")
+@Table(name="player_characters")
 public class PlayerCharacter {
 
     @Id
@@ -15,20 +16,14 @@ public class PlayerCharacter {
 
     @Column(name="name")
     private String name;
-    @Column(name="strength")
-    private int strength;
-    @Column(name="intelligence")
-    private int intelligence;
-    @Column(name="luck")
-    private int luck;
     @Column(name="statusEffect")
     private String statusEffect;
+    @Column
+    private List<IItem> inventory;
+
 
     public PlayerCharacter(String name) {
         this.name = name;
-        this.strength = 0;
-        this.intelligence = 0;
-        this.luck = 0;
         this.statusEffect = null;
     }
 
@@ -80,5 +75,13 @@ public class PlayerCharacter {
 
     public void setStatusEffect(String statusEffect) {
         this.statusEffect = statusEffect;
+    }
+
+    public HashMap<String, Integer> getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(HashMap<String, Integer> attributes) {
+        this.attributes = attributes;
     }
 }
