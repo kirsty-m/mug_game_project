@@ -18,14 +18,15 @@ public class DialogueOption {
 
     @ManyToOne
     @JoinColumn(
-            name = "location_id", nullable = false
+            name = "location_id", nullable = true
     )
     private Location location;
 
 
-    public DialogueOption(Long nextId, String dialogue) {
+    public DialogueOption(Long nextId, String dialogue, Location location) {
         this.nextId = nextId;
         this.dialogue = dialogue;
+        this.location = location;
     }
 
     public Long getId() {
