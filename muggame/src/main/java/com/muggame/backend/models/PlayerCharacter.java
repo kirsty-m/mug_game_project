@@ -45,29 +45,6 @@ public class PlayerCharacter {
         this.name = name;
     }
 
-    public int getStrength() {
-        return strength;
-    }
-
-    public void setStrength(int strength) {
-        this.strength = strength;
-    }
-
-    public int getIntelligence() {
-        return intelligence;
-    }
-
-    public void setIntelligence(int intelligence) {
-        this.intelligence = intelligence;
-    }
-
-    public int getLuck() {
-        return luck;
-    }
-
-    public void setLuck(int luck) {
-        this.luck = luck;
-    }
 
     public String getStatusEffect() {
         return statusEffect;
@@ -77,11 +54,4 @@ public class PlayerCharacter {
         this.statusEffect = statusEffect;
     }
 
-    public HashMap<String, Integer> getAttributes() {
-        return attributes;
-    }
-
-    public void setAttributes(HashMap<String, Integer> attributes) {
-        this.attributes = attributes;
-    }
 }
