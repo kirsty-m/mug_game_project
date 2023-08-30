@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface DialogueOptionRepository extends JpaRepository<DialogueOption, Long> {
 
-    List<DialogueOption> findDialogueOptionsByLocation(Long location_id);
+//    List<DialogueOption> findDialogueOptionsByLocation(Long location_id);
 
 
 

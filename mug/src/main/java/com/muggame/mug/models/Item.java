@@ -14,9 +14,9 @@ public class Item {
     @Column
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "location_id", nullable = false)
-    private Location location;
+//    @ManyToOne
+//    @JoinColumn(name = "location_id", nullable = false)
+//    private Location location;
 
 
 
