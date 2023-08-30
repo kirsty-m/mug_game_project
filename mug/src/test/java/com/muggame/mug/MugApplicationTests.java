@@ -25,7 +25,7 @@ class MugApplicationTests {
 	public void createLocationAndDialogueOption() {
 		Location testLocation = new Location("Kitchen", "A shabby kitchen");
 		locationRepository.save(testLocation);
-		DialogueOption testDialogue = new DialogueOption( 2L, "You wake up in a dark room", testLocation);
+		DialogueOption testDialogue = new DialogueOption( 2L, "Open your eyes", "You see nothing. The room is completely dark",  testLocation);
 		dialogueOptionRepository.save(testDialogue);
 	}
 

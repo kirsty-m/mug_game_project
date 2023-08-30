@@ -16,6 +16,9 @@ public class DialogueOption {
     @Column(name="dialogue")
     private String dialogue;
 
+    @Column(name="response_text")
+    private String responseText;
+
     @ManyToOne
     @JoinColumn(
             name = "location_id", nullable = true
@@ -23,9 +26,10 @@ public class DialogueOption {
     private Location location;
 
 
-    public DialogueOption(Long nextId, String dialogue, Location location) {
+    public DialogueOption(Long nextId, String dialogue, String responseText, Location location) {
         this.nextId = nextId;
         this.dialogue = dialogue;
+        this.responseText = responseText;
         this.location = location;
     }
 
