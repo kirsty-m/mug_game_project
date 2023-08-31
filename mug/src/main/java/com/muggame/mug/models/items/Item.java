@@ -1,6 +1,7 @@
 package com.muggame.mug.models.items;
 
 import com.muggame.mug.models.Location;
+import com.muggame.mug.models.Player;
 
 import javax.persistence.*;
 
@@ -18,8 +19,9 @@ public class Item {
     @Column
     private String description;
 
-    @Column
-    private Boolean inInventory;
+    @ManyToOne
+    @JoinColumn(name = "player_id")
+    private Player player;
 
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = true)
@@ -27,11 +29,11 @@ public class Item {
 
 
 
-    public Item(String name, String description, Location location) {
+    public Item(String name, String description, Location location, Player player) {
         this.name = name;
         this.description = description;
         this.location = location;
-        this.inInventory = false;
+        this.player = player;
     }
 
     public Item(){}
@@ -68,12 +70,12 @@ public class Item {
         this.location = location;
     }
 
-    public Boolean getInInventory() {
-        return inInventory;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setInInventory(Boolean inInventory) {
-        this.inInventory = inInventory;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }
 
