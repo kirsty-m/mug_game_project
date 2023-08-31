@@ -1,6 +1,6 @@
 package com.muggame.mug.models;
 
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
+import com.muggame.mug.models.items.Item;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,8 +19,8 @@ public class Location {
     @Column
     private String description;
 
-//    @OneToMany(mappedBy = "location")
-//    private List<Item> items;
+    @OneToMany(mappedBy = "location")
+    private List<Item> items;
 
     @OneToMany(mappedBy = "location")
     private List<DialogueOption> dialogueOptions;
