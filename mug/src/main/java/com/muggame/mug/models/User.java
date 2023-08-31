@@ -17,16 +17,18 @@ public class User {
     @Column
     private String name;
 
-    @OneToMany
-    private Game game;
+//    @OneToMany
+//    private Game game;
 
 
-    public User(Long id, String emailAddress, String name, Game game) {
+    public User(Long id, String emailAddress, String name) {
         this.id = id;
         this.emailAddress = emailAddress;
         this.name = name;
-        this.game = game;
+//        this.game = game;
     }
+
+    public User(){};
 
     public Long getId() {
         return id;
@@ -52,11 +54,11 @@ public class User {
         this.name = name;
     }
 
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
+//    public Game getGame() {
+//        return game;
+//    }
+//
+//    public void setGame(Game game) {
+//        this.game = game;
+//    }
 }
