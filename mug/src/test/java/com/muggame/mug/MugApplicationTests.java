@@ -43,7 +43,7 @@ class MugApplicationTests {
 		playerRepository.save(testPlayer);
 		DialogueOption testDialogue = new DialogueOption( 2L, "Open your eyes", "You see nothing. The room is completely dark",  testLocation);
 		dialogueOptionRepository.save(testDialogue);
-		Item testItem = new Item("Mug", "Your mug, in all it's glory. It reads 'Allergic To Idiots'", testLocation);
+		Item testItem = new Item("Mug", "Your mug, in all it's glory. It reads 'Allergic To Idiots'", testLocation, null);
 		itemRepository.save(testItem);
 	}
 
@@ -54,8 +54,10 @@ class MugApplicationTests {
 		if (optionalItem.isPresent() && optionalPlayer.isPresent()) {
 			Player testPlayer = optionalPlayer.get();
 			Item testItem = optionalItem.get();
-			testPlayer.addToInventory(testItem);
-			assertEquals(testItem, testPlayer.getInventory().get(0));
+			testItem.setPlayer(testPlayer);
+			testItem.setLocation(null);
+			itemRepository.save(testItem);
+			assertEquals(testItem.getName(), testPlayer.getInventory().get(0).getName());
 		}
 	}
 

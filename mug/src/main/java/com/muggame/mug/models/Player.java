@@ -6,6 +6,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "players")
 public class Player {
 
     @Id
@@ -61,12 +63,7 @@ public class Player {
 //        this.selectedDialogueOptions = selectedDialogueOptions;
 //    }
 
-    public void addToInventory(Item item) {
-        if ( !inventory.contains(item)) {
-            inventory.add(item);
-            item.setInInventory(true);
-        }
-    }
+
 
 
 
