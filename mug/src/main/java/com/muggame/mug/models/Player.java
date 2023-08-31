@@ -20,13 +20,13 @@ public class Player {
     @OneToMany(mappedBy = "player")
     private List<Item> inventory;
 
-//    @Column
-//    private List<DialogueOption> selectedDialogueOptions;
+    @OneToMany(mappedBy = "player")
+    private List<DialogueOption> selectedDialogueOptions;
 
     public Player(String name) {
         this.name = name;
         this.inventory = new ArrayList<>();
-//        this.selectedDialogueOptions = new ArrayList<>();
+        this.selectedDialogueOptions = new ArrayList<>();
     }
 
     public Player() {};
@@ -55,15 +55,17 @@ public class Player {
         this.inventory = inventory;
     }
 
-//    public List<DialogueOption> getSelectedDialogueOptions() {
-//        return selectedDialogueOptions;
-//    }
-//
-//    public void setSelectedDialogueOptions(List<DialogueOption> selectedDialogueOptions) {
-//        this.selectedDialogueOptions = selectedDialogueOptions;
-//    }
+    public List<DialogueOption> getSelectedDialogueOptions() {
+        return selectedDialogueOptions;
+    }
 
+    public void setSelectedDialogueOptions(List<DialogueOption> selectedDialogueOptions) {
+        this.selectedDialogueOptions = selectedDialogueOptions;
+    }
 
+    public void addToSelectedDialogueOptions(DialogueOption dialogueOption){
+        selectedDialogueOptions.add(dialogueOption);
+    }
 
 
 
