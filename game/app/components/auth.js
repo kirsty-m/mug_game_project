@@ -24,10 +24,25 @@ export const Auth = () => {
     const createUser = async () => {
         try {
             await createUserWithEmailAndPassword(auth, email, password);
+    
+            const response = await fetch('/api/createUser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ emailAddress: email, name: 'User Name' }),
+            }); 
+    
+            if (response.ok) {
+                console.log('User created and saved in the database.');
+            } else {
+                console.error('Error saving user in the database.');
+            }
         } catch (err) {
-            console.error("Error creating user:", err.message);
+            console.error('Error creating user:', err.message);
         }
     };
+    
 
     const login = async () => {
         try {
