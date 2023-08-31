@@ -25,13 +25,23 @@ public class DialogueOption {
     )
     private Location location;
 
+    @ManyToOne
+    @JoinColumn(
+            name = "player_id"
+    )
+    private Player player;
 
-    public DialogueOption(Long nextId, String dialogue, String responseText, Location location) {
+
+
+    public DialogueOption(Long nextId, String dialogue, String responseText, Location location, Player player) {
         this.nextId = nextId;
         this.dialogue = dialogue;
         this.responseText = responseText;
         this.location = location;
+        this.player = player;
     }
+
+    public DialogueOption() {}
 
     public Long getId() {
         return id;
@@ -55,5 +65,29 @@ public class DialogueOption {
 
     public void setDialogue(String dialogue) {
         this.dialogue = dialogue;
+    }
+
+    public String getResponseText() {
+        return responseText;
+    }
+
+    public void setResponseText(String responseText) {
+        this.responseText = responseText;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }
