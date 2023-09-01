@@ -4,10 +4,7 @@ import com.muggame.mug.models.DialogueOption;
 import com.muggame.mug.models.items.Item;
 import com.muggame.mug.models.Location;
 import com.muggame.mug.models.Player;
-import com.muggame.mug.repositories.DialogueOptionRepository;
-import com.muggame.mug.repositories.ItemRepository;
-import com.muggame.mug.repositories.LocationRepository;
-import com.muggame.mug.repositories.PlayerRepository;
+import com.muggame.mug.repositories.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +15,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class MugApplicationTests {
+
+	@Autowired
+	UserRepository userRepository;
 
 	@Autowired
 	DialogueOptionRepository dialogueOptionRepository;

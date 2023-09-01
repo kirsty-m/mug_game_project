@@ -10,19 +10,53 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
-    private String email;
+    private String emailAddress;
 
-    public User(String email) {
-        this.email = email;
+    @Column
+    private String name;
+
+//    @OneToMany
+//    private Game game;
+
+
+    public User(Long id, String emailAddress, String name) {
+        this.id = id;
+        this.emailAddress = emailAddress;
+        this.name = name;
+//        this.game = game;
     }
 
+    public User(){};
 
-
-    public String getEmail() {
-        return email;
+    public Long getId() {
+        return id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setId(Long id) {
+        this.id = id;
     }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+//    public Game getGame() {
+//        return game;
+//    }
+//
+//    public void setGame(Game game) {
+//        this.game = game;
+//    }
 }
