@@ -18,8 +18,8 @@ export const Auth = () => {
         };
     }, []);
 
-
-    console.log(auth?.currentUser?.email);
+    if (auth.currentUser != undefined) {
+    console.log(auth.currentUser.email);}
 
     const createUser = async () => {
         try {
