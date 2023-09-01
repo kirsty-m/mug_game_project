@@ -1,6 +1,7 @@
 package com.muggame.mug.models;
 
 import com.muggame.mug.models.items.Item;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,6 +20,19 @@ public class Location {
     @Column
     private String description;
 
+    @ManyToMany
+    @JoinTable(
+            name = "locations_adjacentlocations",
+            joinColumns = {@JoinColumn(
+                    name = "location_id"
+            )},
+            inverseJoinColumns = {@JoinColumn(
+                    name = "adjacentlocation_id"
+            )}
+    )
+    private List<Location> adjacentLocations;
+
+
     @OneToMany(mappedBy = "location")
     private List<Item> items;
 
@@ -29,6 +43,8 @@ public class Location {
         this.name = name;
         this.description = description;
         this.dialogueOptions = new ArrayList<DialogueOption>();
+        this.items = new ArrayList<>();
+        this.adjacentLocations = new ArrayList<>();
     }
 
     public Location() {}
@@ -57,13 +73,6 @@ public class Location {
         this.description = description;
     }
 
-//    public List<Item> getItems() {
-//        return items;
-//    }
-//
-//    public void setItems(List<Item> items) {
-//        this.items = items;
-//    }
 
     public List<DialogueOption> getDialogueOptions() {
         return dialogueOptions;
@@ -71,5 +80,45 @@ public class Location {
 
     public void setDialogueOptions(List<DialogueOption> dialogueOptions) {
         this.dialogueOptions = dialogueOptions;
+    }
+
+    public void addDialogueOption(DialogueOption dialogueOption) {
+        this.dialogueOptions.add(dialogueOption);
+    }
+
+    public void removeDialogueOptions(DialogueOption dialogueOption) {
+        this.dialogueOptions.remove(dialogueOption);
+    }
+
+    public List<Location> getAdjacentLocations() {
+        return adjacentLocations;
+    }
+
+    public void setAdjacentLocations(List<Location> adjacentLocations) {
+        this.adjacentLocations = adjacentLocations;
+    }
+
+    public void addAdjacentLocation(Location location){
+        this.adjacentLocations.add(location);
+    }
+
+    public void removeAdjacentLocation(Location location){
+        this.adjacentLocations.remove(location);
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public void addItem(Item item) {
+        this.items.add(item);
+    }
+
+    public void removeItem(Item item) {
+        this.items.remove(item);
     }
 }

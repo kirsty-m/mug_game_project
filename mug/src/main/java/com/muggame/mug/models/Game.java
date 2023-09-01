@@ -1,5 +1,9 @@
 package com.muggame.mug.models;
 
-public class Game {
+import com.muggame.mug.models.items.Item;
 
+public class Game {
+    private Long id;
+    private Player player;
+    private Location location;
 }
