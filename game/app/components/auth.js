@@ -25,12 +25,12 @@ export const Auth = () => {
         try {
             await createUserWithEmailAndPassword(auth, email, password);
     
-            const response = await fetch('/api/createUser', {
+            const response = await fetch('http://localhost:8080/api/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ emailAddress: email, name: 'User Name' }),
+                body: JSON.stringify({ emailAddress: email, username: 'User Name' }),
             }); 
     
             if (response.ok) {
