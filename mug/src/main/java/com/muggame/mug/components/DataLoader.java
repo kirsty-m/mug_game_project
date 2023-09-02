@@ -3,11 +3,9 @@ package com.muggame.mug.components;
 import com.muggame.mug.models.DialogueOption;
 import com.muggame.mug.models.Location;
 import com.muggame.mug.models.Player;
+import com.muggame.mug.models.User;
 import com.muggame.mug.models.items.Item;
-import com.muggame.mug.repositories.DialogueOptionRepository;
-import com.muggame.mug.repositories.ItemRepository;
-import com.muggame.mug.repositories.LocationRepository;
-import com.muggame.mug.repositories.PlayerRepository;
+import com.muggame.mug.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -30,6 +28,9 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     PlayerRepository playerRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
     public DataLoader() {}
 
     public void run(ApplicationArguments args) {
@@ -43,5 +44,8 @@ public class DataLoader implements ApplicationRunner {
         dialogueOptionRepository.save(testDialogue2);
         Item testItem = new Item("Mug", "Your mug, in all it's glory. It reads 'Allergic To Idiots'", testLocation, null);
         itemRepository.save(testItem);
+
+        User testUser = new User("test@test.co", "testUser");
+        userRepository.save(testUser);
     }
 }

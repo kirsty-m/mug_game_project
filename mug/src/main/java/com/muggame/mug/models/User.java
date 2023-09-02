@@ -9,20 +9,19 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(name = "email_address")
     private String emailAddress;
 
-    @Column
-    private String name;
+    @Column(name = "username")
+    private String username;
 
 //    @OneToMany
 //    private Game game;
 
 
-    public User(Long id, String emailAddress, String name) {
-        this.id = id;
+    public User(String emailAddress, String username) {
         this.emailAddress = emailAddress;
-        this.name = name;
+        this.username = username;
 //        this.game = game;
     }
 
@@ -45,11 +44,11 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.username = name;
     }
 
 //    public Game getGame() {
