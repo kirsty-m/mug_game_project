@@ -1,5 +1,5 @@
-import Narrative from "../components/gameplay/Narrative";
-import OptionList from "../components/gameplay/OptionList";
+import Narrative from "../components/Narrative";
+import OptionList from "../components/OptionList";
 
 export default function page() {
   return (
