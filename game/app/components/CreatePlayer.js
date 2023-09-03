@@ -30,7 +30,7 @@ export default function CreatePlayer() {
   
 
   return (
-    <div className='characterQuestions'>
+    <div className="create-player-form">
       <h4>Enter Player Name:</h4>
       <input
         type="text"
