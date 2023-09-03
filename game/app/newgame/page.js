@@ -1,3 +1,4 @@
+"use client";
 import CreatePlayer from "../components/CreatePlayer";
 
 export default function newgame() {
