@@ -1,7 +1,8 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -24,7 +25,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-} */
+} */ 
 
 
 body {
@@ -59,4 +60,28 @@ body {
   display: flex;
   flex-direction: column;
 
+}
+
+.button {
+  background-color: #FCB3B3;
+  color: #3A4862;
+  cursor: pointer;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+
+.button:hover{
+  background-color: white;
+}
+
+.options{
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.options > a:hover{
+  color: white;
 }
