@@ -1,6 +1,11 @@
 package com.muggame.mug.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.LongSummaryStatistics;
 
 @Entity
@@ -19,26 +24,34 @@ public class DialogueOption {
     @Column(name="response_text")
     private String responseText;
 
+    @JsonIgnoreProperties({"dialogue_options"})
     @ManyToOne
     @JoinColumn(
             name = "location_id", nullable = true
     )
     private Location location;
 
-    @ManyToOne
-    @JoinColumn(
-            name = "player_id"
+    @JsonBackReference
+    @ManyToMany
+    @JoinTable(
+            name = "players_dialogueoptions",
+            joinColumns = {@JoinColumn(
+                    name = "dialogue_option_id"
+            )},
+            inverseJoinColumns = {@JoinColumn(
+                    name = "player_id"
+            )}
     )
-    private Player player;
+    private List<Player> players;
 
 
 
-    public DialogueOption(Long nextId, String dialogue, String responseText, Location location, Player player) {
+    public DialogueOption(Long nextId, String dialogue, String responseText, Location location) {
         this.nextId = nextId;
         this.dialogue = dialogue;
         this.responseText = responseText;
         this.location = location;
-        this.player = player;
+        this.players = new ArrayList<>();
     }
 
     public DialogueOption() {}
@@ -83,11 +96,15 @@ public class DialogueOption {
         this.location = location;
     }
 
-    public Player getPlayer() {
-        return player;
+    public List<Player> getPlayers() {
+        return players;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public void addPlayer(Player player) {
+
     }
 }

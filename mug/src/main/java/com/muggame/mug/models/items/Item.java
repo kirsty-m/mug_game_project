@@ -1,9 +1,13 @@
 package com.muggame.mug.models.items;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.muggame.mug.models.Location;
 import com.muggame.mug.models.Player;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "items")
@@ -19,21 +23,31 @@ public class Item {
     @Column
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "player_id")
-    private Player player;
+    @JsonBackReference
+    @ManyToMany
+    @JoinTable(
+            name = "players_items",
+            joinColumns = {@JoinColumn(
+                    name = "item_id"
+            )},
+            inverseJoinColumns = {@JoinColumn(
+                    name = "player_id"
+            )}
+    )
+    private List<Player> players;
 
+    @JsonIgnoreProperties({"items"})
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = true)
     private Location location;
 
 
 
-    public Item(String name, String description, Location location, Player player) {
+    public Item(String name, String description, Location location) {
         this.name = name;
         this.description = description;
         this.location = location;
-        this.player = player;
+        this.players = new ArrayList<>();
     }
 
     public Item(){}
@@ -70,12 +84,12 @@ public class Item {
         this.location = location;
     }
 
-    public Player getPlayer() {
-        return player;
+    public List<Player> getPlayers() {
+        return players;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setPlayers(List<Player> players) {
+        this.players = players;
     }
 }
 

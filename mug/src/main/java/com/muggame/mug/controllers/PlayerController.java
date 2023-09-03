@@ -15,11 +15,18 @@ public class PlayerController {
     @Autowired
     private PlayerRepository playerRepository;
 
-    @GetMapping
+    @GetMapping(value = "/players")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<List<Item>> getAllPlayers() {
         return new ResponseEntity(playerRepository.findAll(), HttpStatus.OK);
     }
+
+    @GetMapping(value = "players/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity getPirate(@PathVariable Long id) {
+        return new ResponseEntity<>(playerRepository.findById(id), HttpStatus.OK);
+    }
+
 
     @PostMapping(value = "/players")
     @CrossOrigin(origins = "http://localhost:3000")
