@@ -21,7 +21,7 @@ public class PlayerController {
         return new ResponseEntity(playerRepository.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping(value = "/players")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> createPlayer(@RequestBody Map<String, String> playerInfo) {
         String playerName = playerInfo.get("name");
