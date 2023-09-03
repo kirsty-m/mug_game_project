@@ -1,7 +1,10 @@
+
 "use client";
+
 import { useEffect, useState } from "react";
 import Narrative from "../components/gameplay/Narrative";
 import OptionList from "../components/gameplay/OptionList";
+
 
 export default function page() {
 
