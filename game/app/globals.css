@@ -82,6 +82,6 @@ body {
   cursor: pointer;
 }
 
-.options > p:hover{
+.options > a:hover{
   color: white;
 }
