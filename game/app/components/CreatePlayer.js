@@ -37,7 +37,7 @@ export default function CreatePlayer() {
         value={playerName}
         onChange={handlePlayerNameChange}
       />
-      <button onClick={createPlayer}>Create Player</button>
+      <button className='button'onClick={createPlayer}>Create Player</button>
     </div>
   );
 }
