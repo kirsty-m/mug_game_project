@@ -1,5 +1,7 @@
 package com.muggame.mug.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,13 +10,16 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnoreProperties({"games"})
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
+    @JsonIgnoreProperties({"games"})
     @ManyToOne
     private Player player;
 
+    @JsonIgnoreProperties({"games"})
     @ManyToOne
     private Location location;
 
@@ -49,5 +54,13 @@ public class Game {
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

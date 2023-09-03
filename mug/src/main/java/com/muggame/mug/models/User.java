@@ -1,5 +1,7 @@
 package com.muggame.mug.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,15 +16,12 @@ public class User {
     @Column(name = "email_address")
     private String emailAddress;
 
-    @Column(name = "username")
-    private String username;
-
+    @JsonBackReference
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Game> games = new ArrayList<>();
 
-    public User(String emailAddress, String username) {
+    public User(String emailAddress) {
         this.emailAddress = emailAddress;
-        this.username = username;
     }
 
     public User() {
@@ -44,13 +43,6 @@ public class User {
         this.emailAddress = emailAddress;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public List<Game> getGames() {
         return games;

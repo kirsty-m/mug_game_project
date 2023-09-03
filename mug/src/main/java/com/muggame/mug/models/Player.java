@@ -1,5 +1,6 @@
 package com.muggame.mug.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.muggame.mug.models.items.Item;
 
 import javax.persistence.*;
@@ -17,10 +18,30 @@ public class Player {
     @Column
     private String name;
 
-    @OneToMany(mappedBy = "player")
+    @JsonIgnoreProperties({"players"})
+    @ManyToMany
+    @JoinTable(
+            name = "players_items",
+            joinColumns = {@JoinColumn(
+                    name = "player_id"
+            )},
+            inverseJoinColumns = {@JoinColumn(
+                    name = "item_id"
+            )}
+    )
     private List<Item> inventory;
 
-    @OneToMany(mappedBy = "player")
+    @JsonIgnoreProperties({"players"})
+    @ManyToMany
+    @JoinTable(
+            name = "players_dialogueoptions",
+            joinColumns = {@JoinColumn(
+                    name = "player_id"
+            )},
+            inverseJoinColumns = {@JoinColumn(
+                    name = "dialogue_option_id"
+            )}
+    )
     private List<DialogueOption> selectedDialogueOptions;
 
     public Player(String name) {
@@ -65,6 +86,10 @@ public class Player {
 
     public void addToSelectedDialogueOptions(DialogueOption dialogueOption){
         selectedDialogueOptions.add(dialogueOption);
+    }
+
+    public void removeSelectedDialogueOption(DialogueOption dialogueOption) {
+        selectedDialogueOptions.remove(dialogueOption);
     }
 
 

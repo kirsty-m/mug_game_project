@@ -1,5 +1,7 @@
 package com.muggame.mug.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.muggame.mug.models.items.Item;
 import org.hibernate.annotations.Cascade;
 
@@ -20,6 +22,7 @@ public class Location {
     @Column
     private String description;
 
+    @JsonIgnoreProperties({"locations"})
     @ManyToMany
     @JoinTable(
             name = "locations_adjacentlocations",
@@ -32,17 +35,18 @@ public class Location {
     )
     private List<Location> adjacentLocations;
 
-
+    @JsonBackReference
     @OneToMany(mappedBy = "location")
     private List<Item> items;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "location")
     private List<DialogueOption> dialogueOptions;
 
     public Location(String name, String description) {
         this.name = name;
         this.description = description;
-        this.dialogueOptions = new ArrayList<DialogueOption>();
+        this.dialogueOptions = new ArrayList<>();
         this.items = new ArrayList<>();
         this.adjacentLocations = new ArrayList<>();
     }
