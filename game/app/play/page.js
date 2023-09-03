@@ -1,6 +1,6 @@
 "use client";
-import Narrative from "../components/Narrative";
-import OptionList from "../components/OptionList";
+import Narrative from "../components/gameplay/Narrative";
+import OptionList from "../components/gameplay/OptionList";
 
 export default function page() {
   return (
