@@ -62,7 +62,7 @@ public class DataLoader implements ApplicationRunner {
         DialogueOption secondLocationOption3 = new DialogueOption(7L, "What do you think about", "The mug",secondLocation, null );
 
 
-        Location thirdLocation = new Location("The Ofice Car Park", "After a considerable spell of driving, your journey reaches its conclusion as you pull into the office parking area. " +
+        Location thirdLocation = new Location("The Office Car Park", "After a considerable spell of driving, your journey reaches its conclusion as you pull into the office parking area. " +
                 "The cold outside prompts a juxtaposition between your body's warmth and the cold windshield, drawing a foggy veil. " +
                 "Armed with purposeful resolve, you exit your vehicle and stride toward the entrance to your office." +
                 " As you walk beneath the office canopy, your attention is seized by the presence of a tall figure stationed outside the front door. " +
