@@ -26,9 +26,9 @@ export default function OptionList() {
 
   return (
     <div className='options'>
-        <a href='/play/result'>{options.a}</a>
-        <a href='/play/result'>{options.b}</a>
-        <a href='/play/result'>{options.c}</a>
+        <a href='/result'>{options.a}</a>
+        <a href='/result'>{options.b}</a>
+        <a href='/result'>{options.c}</a>
         
     </div>
     
