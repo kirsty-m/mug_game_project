@@ -11,6 +11,10 @@ export default function page() {
   const [game, setGame] = useState("")
 
   useEffect(() => {
+    getData()
+  }, [])
+
+  const getData = () => {
     const request = new Request();
     const gamePromise = request.get('/api/games')
 
@@ -18,7 +22,7 @@ export default function page() {
     .then((data) => {
       setGame(data[0])
     })
-  }, [])
+  }
 
 
 
