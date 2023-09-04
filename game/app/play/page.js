@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Narrative from "../components/Narrative";
 import OptionList from "../components/OptionList";
+import Inventory from "../components/Inventory";
 
 export default function Page() {
   const [game, setGame] = useState({});
@@ -25,9 +26,14 @@ export default function Page() {
   };
 
   return (
+    <>
     <div>
       <Narrative game={game} />
       <OptionList game={game} />
     </div>
+    <div>
+      <Inventory game={game}/>
+    </div>
+    </>
   );
 }
