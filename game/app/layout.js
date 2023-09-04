@@ -11,7 +11,10 @@ export default function RootLayout({ children }) {
       <body className={robotoMono.className}>
         <NavBar className='nav'/>
         {children}
+        <script type="text/javascript"
+          src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
       </body>
+      
     </html>
   )
 }

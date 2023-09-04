@@ -64,8 +64,8 @@ export const Auth = () => {
         <div>
             <input placeholder="email" onChange={(e) => setEmail(e.target.value)} />
             <input placeholder="password" type="password" onChange={(e) => setPassword(e.target.value)} />
-            <button onClick={createUser}>Sign Up</button>
-            <button onClick ={login}> Log In</button>
+            <button className='button' onClick={createUser}>Sign Up</button>
+            <button className='button' onClick ={login}> Log In</button>
 
             
         </div>
@@ -74,7 +74,7 @@ export const Auth = () => {
     else{
         return(
         <div>
-            <button onClick={logout}>Log Out</button>
+            <button className='button' onClick={logout}>Log Out</button>
         </div>
         )
     }
