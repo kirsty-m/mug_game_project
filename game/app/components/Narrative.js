@@ -1,9 +1,12 @@
+import { useEffect, useState } from "react";
 
 
 
-export default function Narrative() {
-  const [location, setLocation] = useState("");
-  const [dialogueOption, setDialogueOption] = useState("");
+export default function Narrative({games}) {
+  const [location, setLocation] = useState({});
+  const [dialogueOption, setDialogueOption] = useState({});
+
+
 
   useEffect(() => {
     getData();
@@ -16,6 +19,7 @@ export default function Narrative() {
       })
       .then((data) => {
         setGame(data);
+        console.log(data)
       })
       .catch((error) => {
         console.error("Error fetching game data:", error);

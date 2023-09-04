@@ -5,8 +5,7 @@ import Narrative from "../components/Narrative";
 import OptionList from "../components/OptionList";
 
 export default function Page() {
-  const [game, setGame] = useState({});
-  // const [location, setLocation] = useState[{}];
+  const [games, setGames] = useState([]);
   // const [dialogueOptions, setDialogueOptions] = useState[{}];
   // const [player, setPlayer] = useState[{}];
   // const [selectedDialogueOptions, setSelectedDialogueOptions] = useState[{}];
@@ -28,7 +27,7 @@ export default function Page() {
         return response.json();
       })
       .then((data) => {
-        setGame(data);
+        setGames(data);
       })
       .catch((error) => {
         console.error("Error fetching game data:", error);
@@ -39,8 +38,8 @@ export default function Page() {
 
   return (
     <div>
-        <Narrative game = {game}/>
-        <OptionList game={game}/>
+        <Narrative games = {games}/>
+        <OptionList games ={games}/>
     </div>
   );
 }
