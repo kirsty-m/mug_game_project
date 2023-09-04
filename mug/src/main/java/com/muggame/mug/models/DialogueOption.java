@@ -50,7 +50,9 @@ public class DialogueOption {
 
 
 
-    public DialogueOption(Long previousId, Long nextId,  String dialogue, String responseText, Location location) {
+
+    public DialogueOption(Long nextId, Long previousId, String dialogue, String responseText, Location location) {
+        this.previousId = previousId;
         this.nextId = nextId;
         this.dialogue = dialogue;
         this.responseText = responseText;

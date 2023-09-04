@@ -1,6 +1,27 @@
 
 
-export default function Narrative({game}) {
+
+export default function Narrative() {
+  const [location, setLocation] = useState("");
+  const [dialogueOption, setDialogueOption] = useState("");
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
+    fetch("/api/locations")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setGame(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching game data:", error);
+      });
+  };
+
 
 
     return (

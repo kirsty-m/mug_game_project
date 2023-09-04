@@ -39,8 +39,8 @@ export default function Page() {
 
   return (
     <div>
-      <Narrative game={game} />
-      <OptionList game={game} />
+        <Narrative game = {game}/>
+        <OptionList game={game}/>
     </div>
   );
 }
