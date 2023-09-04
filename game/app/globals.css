@@ -30,7 +30,7 @@ body {
 main{
   display: flex;
   margin: auto;
-  
+
 }
 
 body {
@@ -109,10 +109,12 @@ body {
 
 .create-player{
   position: absolute;
-  margin: auto;
+  /* margin: auto; */
   border: solid #FCB3B3;
   padding: 25px;
   border-radius: 5px;
+  display: flex;
+  flex:auto;
 }
 
 .create-player-form{
