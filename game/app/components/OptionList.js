@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Link from 'next/link';
 
@@ -23,4 +24,25 @@ export default function OptionList({ game }) {
             <ul>{OptionsElements}</ul>
         </div>
     );
+
+  };
+
+
+
+
+
+  // const OptionsElements = options.map((option, index) => {
+  //     return (
+  //         <li key={index}>
+  //             {options}
+  //         </li>
+  //     )
+
+  return (
+    <div className="options">
+      <a href="/result">{options.a}</a>
+      <a href="/result">{options.b}</a>
+      <a href="/result">{options.c}</a>
+    </div>
+  );
 }

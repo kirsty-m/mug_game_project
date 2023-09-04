@@ -1,5 +1,6 @@
 
 
+
 export default function Narrative() {
   const [location, setLocation] = useState("");
   const [dialogueOption, setDialogueOption] = useState("");
@@ -20,6 +21,7 @@ export default function Narrative() {
         console.error("Error fetching game data:", error);
       });
   };
+
 
 
     return (

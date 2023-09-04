@@ -2,6 +2,7 @@ package com.muggame.mug.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class DialogueOption {
     @Column(name="response_text")
     private String responseText;
 
-    @JsonIgnoreProperties({"dialogue_options"})
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(
             name = "location_id", nullable = true
@@ -46,6 +47,7 @@ public class DialogueOption {
             )}
     )
     private List<Player> players;
+
 
 
 
