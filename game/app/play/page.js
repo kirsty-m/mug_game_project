@@ -6,21 +6,21 @@ import OptionList from "../components/OptionList";
 
 export default function Page() {
   const [game, setGame] = useState({});
-  const [location, setLocation] = useState[{}];
-  const [dialogueOptions, setDialogueOptions] = useState[{}];
-  const [player, setPlayer] = useState[{}];
-  const [selectedDialogueOptions, setSelectedDialogueOptions] = useState[{}];
+  // const [location, setLocation] = useState[{}];
+  // const [dialogueOptions, setDialogueOptions] = useState[{}];
+  // const [player, setPlayer] = useState[{}];
+  // const [selectedDialogueOptions, setSelectedDialogueOptions] = useState[{}];
 
   useEffect(() => {
     getData();
   }, []);
 
-  useEffect(() => {
-    setLocation(game.location);
-    setDialogueOptions(game.dialogueOptions);
-    setPlayer(game.player);
-    setSelectedDialogueOptions(game.player.selectedDialogueOptions);
-  }, [game])
+  // useEffect(() => {
+  //   setLocation(game.location);
+  //   setDialogueOptions(game.dialogueOptions);
+  //   setPlayer(game.player);
+  //   setSelectedDialogueOptions(game.player.selectedDialogueOptions);
+  // }, [game])
 
   const getData = () => {
     fetch("/api/games")
@@ -35,11 +35,11 @@ export default function Page() {
       });
   };
 
-  
+
 
   return (
     <div>
-      <Narrative game={location} />
+      <Narrative game={game} />
       <OptionList game={game} />
     </div>
   );

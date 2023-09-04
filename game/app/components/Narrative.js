@@ -1,6 +1,6 @@
 
 
-export default function Narrative({dialogueOptions}) {
+export default function Narrative({game}) {
 
 
     return (
