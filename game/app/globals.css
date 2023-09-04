@@ -85,3 +85,10 @@ body {
 .options > a:hover{
   color: white;
 }
+
+.inventory-list{
+  border:solid #FCB3B3 ;
+  border-radius: 5px;
+  padding: 10px;
+  
+}
