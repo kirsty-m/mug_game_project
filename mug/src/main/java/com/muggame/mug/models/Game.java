@@ -15,11 +15,11 @@ public class Game {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @JsonIgnoreProperties({"games"})
+//    @JsonIgnoreProperties({"games"})
     @ManyToOne
     private Player player;
 
-    @JsonIgnoreProperties({"games"})
+//    @JsonIgnoreProperties({"games"})
     @ManyToOne
     private Location location;
 

@@ -2,6 +2,7 @@ package com.muggame.mug.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,13 +19,16 @@ public class DialogueOption {
     @Column(name="next_id")
     private Long nextId;
 
+    @Column(name="previous_id")
+    private Long previousId;
+
     @Column(name="dialogue")
     private String dialogue;
 
     @Column(name="response_text")
     private String responseText;
 
-    @JsonIgnoreProperties({"dialogue_options"})
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(
             name = "location_id", nullable = true
@@ -46,7 +50,7 @@ public class DialogueOption {
 
 
 
-    public DialogueOption(Long nextId, String dialogue, String responseText, Location location) {
+    public DialogueOption(Long previousId, Long nextId,  String dialogue, String responseText, Location location) {
         this.nextId = nextId;
         this.dialogue = dialogue;
         this.responseText = responseText;
