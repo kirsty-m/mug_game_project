@@ -1,36 +1,26 @@
-import React from 'react'
-import Link from 'next/link'
+import React from 'react';
+import Link from 'next/link';
 
-const options = {
-    a: "A. Put the kettle on?",
-    b: "B. Go to sleep?",
-    c: "C. Flop on the couch and watch tv?"
-}
 
-export default function OptionList() {
 
-    const OptionList = ({options}) => {
-        if(options.length === 0){
-            return null
-        }
-    }
-// const OptionsElements = options.map((option, index) => {
-//     return (
-//         <li key={index}>
-//             {options}
-//         </li>
-//     )
+export default function OptionList({ game }) {
 
-      
     
 
-  return (
-    <div className='options'>
-        <a href='/result'>{options.a}</a>
-        <a href='/result'>{options.b}</a>
-        <a href='/result'>{options.c}</a>
-        
-    </div>
-    
-  )
+    const currentOptions = game.location.dialogueOptions.filter((dialogueOption) => {
+        return !dialogueOption.previousId;
+    });
+
+
+    const OptionsElements = currentOptions.map((option, index) => (
+        <li key={index}>
+            <Link href="/play">{option.dialogue}</Link>
+        </li>
+    ));
+
+    return (
+        <div className="options">
+            <ul>{OptionsElements}</ul>
+        </div>
+    );
 }
