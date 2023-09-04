@@ -18,6 +18,9 @@ public class DialogueOption {
     @Column(name="next_id")
     private Long nextId;
 
+    @Column(name="previous_id")
+    private Long previousId;
+
     @Column(name="dialogue")
     private String dialogue;
 
@@ -46,7 +49,8 @@ public class DialogueOption {
 
 
 
-    public DialogueOption(Long nextId, String dialogue, String responseText, Location location) {
+    public DialogueOption(Long nextId, Long previousId, String dialogue, String responseText, Location location) {
+        this.previousId = previousId;
         this.nextId = nextId;
         this.dialogue = dialogue;
         this.responseText = responseText;
