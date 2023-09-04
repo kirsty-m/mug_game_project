@@ -27,13 +27,16 @@ export default function Page() {
 
   return (
     <>
-    <div>
-      <Narrative game={game} />
-      <OptionList game={game} />
+    <div className="main-container">
+        <div className="collapsable-list">
+          <Inventory game={game}/>
+        </div>
+        <div className="game-area">
+          <Narrative game={game} />
+          <OptionList game={game} />
+        </div>
     </div>
-    <div>
-      <Inventory game={game}/>
-    </div>
+    
     </>
   );
 }

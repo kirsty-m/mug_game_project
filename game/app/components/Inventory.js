@@ -6,9 +6,9 @@ export default function Inventory() {
     <details className='inventory'>
         <summary className='button'>INVENTORY</summary>
         <div className="inventory-list"> 
-            <ul>Item 1</ul>
-            <ul>Item 2</ul>
-            <ul>Item 3</ul>
+            <ul className='inventory-item'>Item 1</ul>
+            <ul className='inventory-item'>Item 2</ul>
+            <ul className='inventory-item'>Item 3</ul>
         </div>
     </details>
 
