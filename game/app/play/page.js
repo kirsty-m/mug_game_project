@@ -1,35 +1,33 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
 import Narrative from "../components/Narrative";
 import OptionList from "../components/OptionList";
 
-
-export default function page() {
-
-  const [game, setGame] = useState("")
+export default function Page() {
+  const [game, setGame] = useState({});
 
   useEffect(() => {
-    getData()
-  }, [])
+    getData();
+  }, []);
 
   const getData = () => {
-    const request = new Request();
-    const gamePromise = request.get('/api/games')
-
-    Promise.all([gamePromise])
-    .then((data) => {
-      setGame(data[0])
-    })
-  }
-
-
+    fetch("/api/games")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setGame(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching game data:", error);
+      });
+  };
 
   return (
     <div>
-        <Narrative/>
-        <OptionList/>
+      <Narrative game={game} />
+      <OptionList game={game} />
     </div>
-  )
+  );
 }
