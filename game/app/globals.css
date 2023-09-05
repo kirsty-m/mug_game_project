@@ -95,8 +95,8 @@ body {
 }
 
 .inventory{
-width: 20vw;
-  }
+  width:30vw;
+}
 
 .inventory-list{
   border:solid #FCB3B3 ;
@@ -120,4 +120,31 @@ width: 20vw;
 
 .collapsable-list{
   margin-right: 10px;
+}
+
+.ascii-image{
+  border: solid #FCB3B3;
+  border-radius: 5px;
+}
+
+.left-side-col{
+  min-width: 30vh;
+}
+
+.ascii-image-container{
+  border: dashed 2px #FCB3B3;
+  border-radius: 5px;
+  border-style: dashed 4px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.label{
+  background-color: #FCB3B3;
+  color:#3A4862;
+  border-radius: 5px;
+  padding: 5px 20px;
+  width:fit-content;
+  margin-bottom: -2px;
+  margin-left: -2px;
 }
