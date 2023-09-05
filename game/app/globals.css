@@ -39,6 +39,13 @@ body {
   height: 100vh;
 }
 
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
 .Title{
   display: flex;
   position: absolute;
@@ -49,16 +56,23 @@ body {
 .main-container{
   display:flex;
   flex-direction: row;
+  align-content: space-between;
+
+}
+
+.game-area{
+  flex-direction: column;
+  width:50vw;
+  padding: 0px 20px
 }
 
 .narrative {
-  width: 40vw;
+  /* width: 40vw; */
   color: #3A4862;
   background-color: #FCB3B3;
   border-radius: 5px;
   padding: 20px;
   margin: auto;
-  margin-top: 100px;
   font-size: small;
 
 }
@@ -107,7 +121,7 @@ body {
 .inventory-item{
   padding: 5px;
   cursor: pointer;
-  width:fit-content
+  width:fit-content;
 }
 
 .inventory-item:hover{
@@ -133,9 +147,12 @@ body {
 
 .ascii-image-container{
   margin-bottom: 10px;
-  margin-top: 10px;
+
+  outline: 1px solid #3A4862;
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%23FCB3B3FF' stroke-width='4' stroke-dasharray='10%2c 15' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
   border-radius: 10px;
+  border-bottom: 4px;
+  
 }
 
 .label{
@@ -146,4 +163,13 @@ body {
   width:fit-content;
   /* margin-bottom: -2px;
   margin-left: -2px; */
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  width:fit-content;
+  align-items: start;
+
+
 }

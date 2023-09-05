@@ -9,8 +9,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={robotoMono.className}>
-        <NavBar className='nav'/>
-        {children}
+        <main>
+          {children} 
+          <NavBar className='nav'/>       
+        </main>
       </body>
     </html>
   )
