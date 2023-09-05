@@ -21,6 +21,7 @@ export default function Page() {
         return response.json();
       })
       .then((data) => {
+        
         setGames(data);
         setLocation(data[0]?.location || {});
       })

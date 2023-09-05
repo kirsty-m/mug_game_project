@@ -40,8 +40,8 @@ public class DataLoader implements ApplicationRunner {
 
         Location testLocation = new Location("Kitchen", "A shabby kitchen");
         locationRepository.save(testLocation);
-//        Player testPlayer = new Player("Yurtle");
-//        playerRepository.save(testPlayer);
+        Player testPlayer = new Player("Yurtle");
+        playerRepository.save(testPlayer);
         DialogueOption testDialogue = new DialogueOption( null, 3L, "Open your eyes", "You see nothing. The room is completely dark",  testLocation);
         dialogueOptionRepository.save(testDialogue);
         DialogueOption testDialogue2 = new DialogueOption(null, null, "Eat the sandwich", "You eat the sandwich", testLocation);
@@ -54,8 +54,8 @@ public class DataLoader implements ApplicationRunner {
         User testUser = new User("test@test.co");
         userRepository.save(testUser);
 
-//        Game testGame = new Game(testUser, testPlayer, testLocation);
-//        gameRepository.save(testGame);
+        Game testGame = new Game(testUser, testPlayer, testLocation);
+        gameRepository.save(testGame);
 
 //
 //        Location firstLocation = new Location("Home",
