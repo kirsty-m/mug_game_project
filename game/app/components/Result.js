@@ -1,11 +1,8 @@
-
-
-export default function Result() {
+export default function Result({ selectedOption }) {
     return (
-    <div className="result">
-        <p><text>There's nothing interesting on telly tonight. </text></p>
-        
-
-    </div>
-    )
-}
+      <div className="result">
+        {selectedOption && <p>{selectedOption.responseText}</p>}
+      </div>
+    );
+  }
+  
