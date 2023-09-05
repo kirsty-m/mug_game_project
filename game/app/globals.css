@@ -170,9 +170,10 @@ main {
   margin-bottom: 10px;
 
   outline: 1px solid #3A4862;
+  /* border:solid #FCB3B3; */
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%23FCB3B3FF' stroke-width='4' stroke-dasharray='10%2c 15' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
   border-radius: 10px;
-  border-bottom: 4px;
+  /* border-bottom: 4px; */
   
 }
 
