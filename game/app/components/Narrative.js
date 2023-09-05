@@ -18,7 +18,7 @@ export default function Narrative({games}) {
         return response.json();
       })
       .then((data) => {
-        setGame(data);
+        // setGame(data);
         console.log(data)
       })
       .catch((error) => {
