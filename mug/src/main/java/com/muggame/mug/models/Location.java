@@ -36,11 +36,11 @@ public class Location {
     )
     private List<Location> adjacentLocations;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "location-item")
     @OneToMany(mappedBy = "location")
     private List<Item> items;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "location-dialogue")
     @OneToMany(mappedBy = "location")
     private List<DialogueOption> dialogueOptions;
 

@@ -28,7 +28,7 @@ public class DialogueOption {
     @Column(name="response_text")
     private String responseText;
 
-    @JsonBackReference
+    @JsonBackReference(value = "location-dialogue")
     @ManyToOne
     @JoinColumn(
             name = "location_id", nullable = true

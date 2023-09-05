@@ -36,7 +36,7 @@ public class Item {
     )
     private List<Player> players;
 
-    @JsonBackReference
+    @JsonBackReference(value = "location-item")
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = true)
     private Location location;

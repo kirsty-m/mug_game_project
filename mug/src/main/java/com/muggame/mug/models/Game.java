@@ -1,5 +1,6 @@
 package com.muggame.mug.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -10,7 +11,7 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnoreProperties({"games"})
+    @JsonBackReference(value = "user-game")
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

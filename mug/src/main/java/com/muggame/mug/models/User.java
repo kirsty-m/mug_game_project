@@ -1,6 +1,7 @@
 package com.muggame.mug.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,11 +17,12 @@ public class User {
     @Column(name = "email_address")
     private String emailAddress;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value = "user-game")
+    @OneToMany(mappedBy = "user")
     private List<Game> games = new ArrayList<>();
 
     public User(String emailAddress) {
+
         this.emailAddress = emailAddress;
     }
 
