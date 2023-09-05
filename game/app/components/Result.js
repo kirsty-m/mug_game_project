@@ -1,8 +1,17 @@
+import React, { useEffect, useState } from 'react';
+
 export default function Result({ selectedOption }) {
-    return (
-      <div className="result">
-        {selectedOption && <p>{selectedOption.responseText}</p>}
-      </div>
-    );
-  }
-  
+  const [responseText, setResponseText] = useState('');
+
+  useEffect(() => {
+    if (selectedOption) {
+      setResponseText(selectedOption.responseText);
+    }
+  }, [selectedOption]);
+
+  return (
+    <div className="result">
+      {responseText && <p>{responseText}</p>}
+    </div>
+  );
+}

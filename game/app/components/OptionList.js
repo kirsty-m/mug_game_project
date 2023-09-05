@@ -1,15 +1,14 @@
 "use client";
 import React, { useState } from 'react';
-import Link from 'next/link';
 import Result from './Result';
 
 export default function OptionList({ games, onResultSelected }) {
-    const [selectedOption, setSelectedOption] = useState(null);
-  
-    const handleOptionClick = (option) => {
-      setSelectedOption(option);
-      onResultSelected(); 
-    };
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    onResultSelected(option); 
+  };
 
   if (games.length > 0 && games[0].location) {
     const location = games[0].location;
@@ -29,7 +28,7 @@ export default function OptionList({ games, onResultSelected }) {
     return (
       <div className="options">
         <ul>{OptionsElements}</ul>
-        <Result selectedOption={selectedOption} /> 
+        <Result selectedOption={selectedOption} /> {/* Pass the selected option here */}
       </div>
     );
   }
