@@ -13,6 +13,7 @@ export default function AsciiImage() {
       width={500}
       height={300}
       priority lazy 
+      className='ascii'
       />
       <div>
         <p className='label'>HOUSE</p>

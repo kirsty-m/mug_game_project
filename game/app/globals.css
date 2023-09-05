@@ -96,6 +96,23 @@ main {
   background-color: white;
 }
 
+
+.nav-button {
+  background-color: #FCB3B3;
+  color: #3A4862;
+  cursor: pointer;
+  padding: 5px 20px;
+  border-radius: 5px;
+  width:140px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.nav-button:hover{
+  background-color: white;
+}
+
+
 .options{
   padding-top: 50px;
   display: flex;
@@ -141,6 +158,10 @@ main {
   border-radius: 5px;
 }
 
+.ascii{
+  color: #FCB3B3;
+}
+
 .left-side-col{
   min-width: 30vh;
 }
@@ -168,8 +189,10 @@ main {
 nav {
   display: flex;
   flex-direction: column;
-  width:fit-content;
+  width:auto;
   align-items: start;
+}
 
-
+.nav-bar{
+  
 }
