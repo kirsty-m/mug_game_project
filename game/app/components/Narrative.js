@@ -13,7 +13,7 @@ export default function Narrative({ games, location }) {
         return response.json();
       })
       .then((data) => {
-        setGame(data);
+        // setGame(data);
         console.log(data);
       })
       .catch((error) => {
