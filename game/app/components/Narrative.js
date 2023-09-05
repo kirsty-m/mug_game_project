@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 
-
-
-export default function Narrative({games}) {
-  const [location, setLocation] = useState({});
+export default function Narrative({ games, location }) {
   const [dialogueOption, setDialogueOption] = useState({});
-
-
 
   useEffect(() => {
     getData();
@@ -19,20 +14,17 @@ export default function Narrative({games}) {
       })
       .then((data) => {
         // setGame(data);
-        console.log(data)
+        console.log(data);
       })
       .catch((error) => {
         console.error("Error fetching game data:", error);
       });
   };
 
-
-
-    return (
+  return (
     <div className="narrative">
-        <p><text>Today has been a long day. Upon entering your cosy apartment, a sigh of relief escapes you as you drop your work bag on the floor. The day has felt incredibly long.</text></p>
-        
-        <p>Do you:</p>
+      <p>{location.description}</p>
+      <p>Do you:</p>
     </div>
-    )
+  );
 }
