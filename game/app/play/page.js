@@ -38,7 +38,7 @@ export default function Page() {
   };
 
   return (
-
+    <Router>
     <div className="main-container">
         <div className="left-side-col">
           <div className="image">
@@ -50,7 +50,7 @@ export default function Page() {
         </div>
 
       <div className="game-area">
-      <Narrative games={games} location={location} />
+      {/* <Narrative games={games} location={location} /> */}
       {!showResult && (
         <OptionList
           games={games}
@@ -61,6 +61,7 @@ export default function Page() {
       {showResult && <Result selectedOption={selectedOption} />}
       </div>
     </div>
+    </Router>
 
 
   

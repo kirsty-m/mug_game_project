@@ -1,8 +1,10 @@
 "use client";
 import React, { useEffect, useState } from 'react';
+import OptionList from './OptionList';
 
-export default function Result({ selectedOption }) {
+export default function Result({ selectedOption, games, showResultAndHideOptions, showResult }) {
   const [responseText, setResponseText] = useState('');
+  const [showOptionsList, setShowOptionsList] = useState(false);
 
   useEffect(() => {
     if (selectedOption) {
@@ -10,10 +12,17 @@ export default function Result({ selectedOption }) {
     }
   }, [selectedOption]);
 
+  const handleContinueClick = () => {
+    setShowOptionsList(true);
+  };
+
   return (
-    <div className="result">
-      {responseText && <p>{responseText}</p>}
-      <button> Continue </button>
+    <div>
+      {!showOptionsList && responseText && <p>{responseText}</p>}
+      {showOptionsList && <OptionList games={games}
+          onResultSelected={showResultAndHideOptions}
+          showResult={showResult} selectedOption={selectedOption} />}
+      <button onClick={handleContinueClick}>Continue</button>
     </div>
   );
 }

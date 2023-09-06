@@ -4,7 +4,7 @@ import Result from './Result';
 
 import Narrative from './Narrative';
 
-export default function OptionList({ games, onResultSelected, setShowDescription, showResult }) {
+export default function OptionList({ games, onResultSelected, showResult }) {
     const [selectedOption, setSelectedOption] = useState(null);
 
 
@@ -12,7 +12,6 @@ export default function OptionList({ games, onResultSelected, setShowDescription
     const handleOptionClick = (option) => {
         setSelectedOption(option);
         onResultSelected(option);
-        setShowDescription(false);
     };
 
     if (games.length > 0 && games[0].location) {
@@ -35,12 +34,11 @@ export default function OptionList({ games, onResultSelected, setShowDescription
                 <Narrative
                     games={games}
                     location={location}
-                    setShowDescription={setShowDescription}
                 />
                 {!showResult && (
                     <ul>{OptionsElements}</ul>
                 )}
-                {showResult && <Result selectedOption={selectedOption} />}
+                {showResult && <Result games={games} selectedOption={selectedOption}/>}
             </div>
         );
     }
