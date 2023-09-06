@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import Narrative from "../components/Narrative";
 import OptionList from "../components/OptionList";
@@ -9,7 +8,7 @@ export default function Page() {
   const [games, setGames] = useState([]);
   const [location, setLocation] = useState({});
   const [showResult, setShowResult] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null); // Define selectedOption here
+  const [selectedOption, setSelectedOption] = useState(null);
 
   useEffect(() => {
     getData();
@@ -21,7 +20,6 @@ export default function Page() {
         return response.json();
       })
       .then((data) => {
-        
         setGames(data);
         setLocation(data[0]?.location || {});
       })
@@ -37,9 +35,13 @@ export default function Page() {
 
   return (
     <div>
-      <Narrative games={games} location={location} />
+      {/* <Narrative games={games} location={location} /> */}
       {!showResult && (
-        <OptionList games={games} onResultSelected={showResultAndHideOptions} />
+        <OptionList
+          games={games}
+          onResultSelected={showResultAndHideOptions}
+          showResult={showResult}
+        />
       )}
       {showResult && <Result selectedOption={selectedOption} />}
     </div>

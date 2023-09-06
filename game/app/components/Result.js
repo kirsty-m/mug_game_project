@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from 'react';
 
 export default function Result({ selectedOption }) {
@@ -12,6 +13,7 @@ export default function Result({ selectedOption }) {
   return (
     <div className="result">
       {responseText && <p>{responseText}</p>}
+      <button> Continue </button>
     </div>
   );
 }
