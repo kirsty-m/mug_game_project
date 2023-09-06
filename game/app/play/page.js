@@ -51,7 +51,7 @@ export default function Page() {
         </div>
         </div>
 
-      <div>
+      <div className="game-area">
       <Narrative games={games} location={location} />
       {!showResult && (
         <OptionList games={games} onResultSelected={showResultAndHideOptions} />

@@ -27,7 +27,7 @@ export default function OptionList({ games, onResultSelected }) {
 
     return (
       <div className="options">
-        <ul>{OptionsElements}</ul>
+        <ul className='option'>{OptionsElements}</ul>
         <Result selectedOption={selectedOption} /> {/* Pass the selected option here */}
       </div>
     );
