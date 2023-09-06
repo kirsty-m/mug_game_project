@@ -131,8 +131,9 @@ const login = async () => {
     return <Auth setUserEmail={setUserEmail} logout={logout} createUser = {createUser} login={login} />
   }
     else {
+
   return (
-    
+    <Router>
     <div className="main-container">
       <div>
             <Auth setUserEmail={setUserEmail} logout={logout} createUser = {createUser} login={login} />
@@ -158,6 +159,7 @@ const login = async () => {
       {showResult && <Result selectedOption={selectedOption} />}
       </div>
     </div>
+    </Router>
 
 
   
