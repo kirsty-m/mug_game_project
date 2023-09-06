@@ -14,7 +14,7 @@ export default function OptionList({ games, onResultSelected, showResult }) {
         onResultSelected(option);
     };
 
-    if (games.length > 0 && games[0].location) {
+    if (games.location) {
         const location = games[0].location;
 
         const currentOptions = location.dialogueOptions.filter((dialogueOption) => {
