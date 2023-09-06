@@ -3,7 +3,7 @@ import { auth } from "configs/firebase";
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
 
-export const Auth = () => {
+export const Auth = ({setUserEmail, logout}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [user, setUser] = useState(auth.currentUser);
@@ -18,7 +18,13 @@ export const Auth = () => {
         };
     }, []);
 
+    // useEffect(() => {
+    //     console.log(user.email)
+    //   setUserEmail(user.email);
+    // }, [user])
+
     if (auth.currentUser != undefined) {
+        setUserEmail(auth.currentUser.email);   
     console.log(auth.currentUser.email);}
 
     const createUser = async () => {
@@ -52,13 +58,15 @@ export const Auth = () => {
         }
     };
 
-    const logout = async () => {
-        try {
-            await signOut(auth);
-        } catch (err) {
-            console.error("Error logging out:", err.message);
-        }
-    };
+    // const logout = async () => {
+    //     try {
+    //         await signOut(auth);
+    //         setUserEmail("");
+    //     } catch (err) {
+    //         console.error("Error logging out:", err.message);
+    //     }
+    // };
+
     if (!user) {
     return (
         <div className='sign-in'>

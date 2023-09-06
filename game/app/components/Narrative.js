@@ -1,7 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-export default function Narrative({ games, location }) {
+
+export default function Narrative({ game, location, setShowDescription }) {
+    const [dialogueOption, setDialogueOption] = useState({});
     const [showDesc, setShowDesc] = useState(true);
 
     useEffect(() => {
