@@ -1,30 +1,32 @@
-import { useEffect, useState } from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
-export default function Narrative({ games, location }) {
-  const [dialogueOption, setDialogueOption] = useState({});
+export default function Narrative({ games, location, setShowDescription }) {
+    const [dialogueOption, setDialogueOption] = useState({});
+    const [showDesc, setShowDesc] = useState(true);
 
-  useEffect(() => {
-    getData();
-  }, []);
+    useEffect(() => {
+        getData();
+    }, []);
 
-  const getData = () => {
-    fetch("/api/locations")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        // setGame(data);
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching game data:", error);
-      });
-  };
+    const getData = () => {
+        fetch("/api/locations")
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
 
-  return (
-    <div className="narrative">
-      <p>{location.description}</p>
-      <p>Do you:</p>
-    </div>
-  );
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error("Error fetching game data:", error);
+            });
+    };
+
+    return (
+        <div className="narrative">
+            {showDesc && <p>{location.description}</p>}
+            {showDesc && <p>Do you:</p>}
+        </div>
+    );
 }

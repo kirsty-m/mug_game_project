@@ -2,37 +2,48 @@
 import React, { useState } from 'react';
 import Result from './Result';
 
-export default function OptionList({ games, onResultSelected }) {
-  const [selectedOption, setSelectedOption] = useState(null);
+import Narrative from './Narrative';
 
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
-    onResultSelected(option); 
-  };
+export default function OptionList({ games, onResultSelected, setShowDescription, showResult }) {
+    const [selectedOption, setSelectedOption] = useState(null);
 
-  if (games.length > 0 && games[0].location) {
-    const location = games[0].location;
 
-    const currentOptions = location.dialogueOptions.filter((dialogueOption) => {
-      return !dialogueOption.previousId;
-    });
 
-    const OptionsElements = currentOptions.map((option, index) => (
-      <li key={index}>
-        <button onClick={() => handleOptionClick(option)}>
-          {option.dialogue}
-        </button>
-      </li>
-    ));
+    const handleOptionClick = (option) => {
+        setSelectedOption(option);
+        onResultSelected(option);
+        setShowDescription(false);
+    };
 
-    return (
-      <div className="options">
-        <ul className='option'>{OptionsElements}</ul>
-        <Result selectedOption={selectedOption} /> {/* Pass the selected option here */}
-      </div>
-    );
-  }
+    if (games.length > 0 && games[0].location) {
+        const location = games[0].location;
 
-  return <div>No games available.</div>;
+        const currentOptions = location.dialogueOptions.filter((dialogueOption) => {
+            return !dialogueOption.previousId;
+        });
 
+        const OptionsElements = currentOptions.map((option, index) => (
+            <li key={index}>
+                <button onClick={() => handleOptionClick(option)}>
+                    {option.dialogue}
+                </button>
+            </li>
+        ));
+
+        return (
+            <div>
+                <Narrative
+                    games={games}
+                    location={location}
+                    setShowDescription={setShowDescription}
+                />
+                {!showResult && (
+                    <ul>{OptionsElements}</ul>
+                )}
+                {showResult && <Result selectedOption={selectedOption} />}
+            </div>
+        );
+    }
+
+    return <div>No games available.</div>;
 }
