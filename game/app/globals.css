@@ -121,9 +121,11 @@ main {
   cursor: pointer;
 }
 
-.options > a:hover{
+.options > ul:hover{
   color: white;
 }
+
+
 
 .inventory{
   width:30vw;
