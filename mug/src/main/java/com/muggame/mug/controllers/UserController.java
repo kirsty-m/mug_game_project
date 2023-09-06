@@ -18,8 +18,16 @@ public class UserController {
 
     @GetMapping(value = "/users")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<List<Item>> getAllUsers() {
-        return new ResponseEntity (userRepository.findAll(), HttpStatus.OK);
+    public ResponseEntity<User> getAllUsers(@RequestParam(name="email", required = false) String emailAddress) {
+        if (emailAddress != null) {
+            User selectedUser = userRepository.findByEmailAddress(emailAddress);
+            return new ResponseEntity<>(selectedUser, HttpStatus.OK);
+        }
+
+        return null;
+//        else{
+//            return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
+//        }
     }
     @PostMapping(value = "/users")
     @CrossOrigin(origins = "http://localhost:3000")
