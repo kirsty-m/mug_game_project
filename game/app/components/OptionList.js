@@ -4,7 +4,7 @@ import Result from './Result';
 
 import Narrative from './Narrative';
 
-export default function OptionList({ games, onResultSelected, setShowDescription, showResult }) {
+export default function OptionList({ game, onResultSelected, setShowDescription, showResult }) {
     const [selectedOption, setSelectedOption] = useState(null);
 
 
@@ -15,8 +15,8 @@ export default function OptionList({ games, onResultSelected, setShowDescription
         setShowDescription(false);
     };
 
-    if (games.length > 0 && games[0].location) {
-        const location = games[0].location;
+    if (game.length > 0 && game[0].location) {
+        const location = game[0].location;
 
         const currentOptions = location.dialogueOptions.filter((dialogueOption) => {
             return !dialogueOption.previousId;
@@ -33,7 +33,7 @@ export default function OptionList({ games, onResultSelected, setShowDescription
         return (
             <div>
                 <Narrative
-                    games={games}
+                    game={game}
                     location={location}
                     setShowDescription={setShowDescription}
                 />
@@ -45,5 +45,5 @@ export default function OptionList({ games, onResultSelected, setShowDescription
         );
     }
 
-    return <div>No games available.</div>;
+    return <div>No game available.</div>;
 }
