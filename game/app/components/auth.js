@@ -61,12 +61,15 @@ export const Auth = () => {
     };
     if (!user) {
     return (
-        <div>
-            <input placeholder="email" onChange={(e) => setEmail(e.target.value)} />
-            <input placeholder="password" type="password" onChange={(e) => setPassword(e.target.value)} />
-            <button onClick={createUser}>Sign Up</button>
-            <button onClick ={login}> Log In</button>
-
+        <div className='sign-in'>
+            <p>Email:</p>
+            <input onChange={(e) => setEmail(e.target.value)} />
+            <p>Password:</p>
+            <input type="password" onChange={(e) => setPassword(e.target.value)} />
+            <div className='sign-in-buttons'>
+            <button className='button'onClick={createUser}>Sign Up</button>
+            <button className='button'onClick ={login}> Log In</button>
+            </div>
             
         </div>
     );

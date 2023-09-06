@@ -2,7 +2,11 @@
 import React, { useEffect, useState } from "react";
 import Narrative from "../components/Narrative";
 import OptionList from "../components/OptionList";
+
+import Inventory from "../components/Inventory";
+import AsciiImage from "../components/AsciiImage";
 import Result from "../components/Result";
+
 
 export default function Page() {
   const [games, setGames] = useState([]);
@@ -34,8 +38,19 @@ export default function Page() {
   };
 
   return (
-    <div>
-      {/* <Narrative games={games} location={location} /> */}
+
+    <div className="main-container">
+        <div className="left-side-col">
+          <div className="image">
+            <AsciiImage className='ascii-image'/>
+          </div>
+        <div className="collapsable-list">
+          <Inventory games={games}/>
+        </div>
+        </div>
+
+      <div className="game-area">
+      <Narrative games={games} location={location} />
       {!showResult && (
         <OptionList
           games={games}
@@ -44,6 +59,10 @@ export default function Page() {
         />
       )}
       {showResult && <Result selectedOption={selectedOption} />}
+      </div>
     </div>
-  );
-}
+
+
+  
+  )
+};

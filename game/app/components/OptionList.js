@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import Result from './Result';
+
 import Narrative from './Narrative';
 
 export default function OptionList({ games, onResultSelected, setShowDescription, showResult }) {
