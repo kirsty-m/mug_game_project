@@ -40,30 +40,26 @@ export default function Page() {
   };
 
   return (
-    <>
+
     <div className="main-container">
         <div className="left-side-col">
-        <div className="image">
-          <AsciiImage className='ascii-image'/>
-        </div>
+          <div className="image">
+            <AsciiImage className='ascii-image'/>
+          </div>
         <div className="collapsable-list">
-          <Inventory game={game}/>
+          <Inventory games={games}/>
         </div>
-        </div>
-        <div className="game-area">
-          <Narrative game={game} />
-          <OptionList game={game} />
         </div>
 
-    <div>
+      <div>
       <Narrative games={games} location={location} />
       {!showResult && (
         <OptionList games={games} onResultSelected={showResultAndHideOptions} />
       )}
       {showResult && <Result selectedOption={selectedOption} />}
-
+      </div>
     </div>
-    
-    </>
-  );
-}
+
+  
+  )
+};
