@@ -15,8 +15,10 @@ export default function OptionList({ game, onResultSelected, setShowDescription,
         onResultSelected(option);
     };
 
-    if (game.length > 0 && game[0].location) {
-        const location = game[0].location;
+
+    if (games.location) {
+        const location = games[0].location;
+
 
         const currentOptions = location.dialogueOptions.filter((dialogueOption) => {
             return !dialogueOption.previousId;
