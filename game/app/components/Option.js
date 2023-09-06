@@ -1,11 +1,8 @@
 import React from 'react'
 
-export default function Option() {
+export default function Option({options}) {
 
-    // const Option = ({option}) => {
-    //     if(!option){
-    //         return null
-    //     }
+
     
   return (
     <div>

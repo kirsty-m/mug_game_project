@@ -1,36 +1,38 @@
-import React from 'react'
-import Link from 'next/link'
+"use client";
+import React, { useState } from 'react';
+import Result from './Result';
 
-const options = {
-    a: "A. Put the kettle on?",
-    b: "B. Go to sleep?",
-    c: "C. Flop on the couch and watch tv?"
-}
+export default function OptionList({ games, onResultSelected }) {
+  const [selectedOption, setSelectedOption] = useState(null);
 
-export default function OptionList() {
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    onResultSelected(option); 
+  };
 
-    const OptionList = ({options}) => {
-        if(options.length === 0){
-            return null
-        }
-    }
-// const OptionsElements = options.map((option, index) => {
-//     return (
-//         <li key={index}>
-//             {options}
-//         </li>
-//     )
+  if (games.length > 0 && games[0].location) {
+    const location = games[0].location;
 
-      
-    
+    const currentOptions = location.dialogueOptions.filter((dialogueOption) => {
+      return !dialogueOption.previousId;
+    });
 
-  return (
-    <div className='options'>
-        <a href='/result'>{options.a}</a>
-        <a href='/result'>{options.b}</a>
-        <a href='/result'>{options.c}</a>
-        
-    </div>
-    
-  )
+    const OptionsElements = currentOptions.map((option, index) => (
+      <li key={index}>
+        <button onClick={() => handleOptionClick(option)}>
+          {option.dialogue}
+        </button>
+      </li>
+    ));
+
+    return (
+      <div className="options">
+        <ul>{OptionsElements}</ul>
+        <Result selectedOption={selectedOption} /> {/* Pass the selected option here */}
+      </div>
+    );
+  }
+
+  return <div>No games available.</div>;
+
 }

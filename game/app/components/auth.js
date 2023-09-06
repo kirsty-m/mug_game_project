@@ -30,7 +30,7 @@ export const Auth = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ emailAddress: email, username: 'User Name' }),
+                body: JSON.stringify({ emailAddress: email }),
             }); 
     
             if (response.ok) {

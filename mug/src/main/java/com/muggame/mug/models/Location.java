@@ -2,6 +2,7 @@ package com.muggame.mug.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.muggame.mug.models.items.Item;
 import org.hibernate.annotations.Cascade;
 
@@ -35,11 +36,11 @@ public class Location {
     )
     private List<Location> adjacentLocations;
 
-    @JsonBackReference
+    @JsonManagedReference(value = "location-item")
     @OneToMany(mappedBy = "location")
     private List<Item> items;
 
-    @JsonBackReference
+    @JsonManagedReference(value = "location-dialogue")
     @OneToMany(mappedBy = "location")
     private List<DialogueOption> dialogueOptions;
 
